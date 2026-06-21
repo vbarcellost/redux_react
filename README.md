@@ -1,46 +1,77 @@
-# Getting Started with Create React App
+# EBAC Sports — Redux React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação de uma loja de artigos esportivos desenvolvida com React e TypeScript. O projeto utiliza Redux Toolkit para gerenciar o carrinho e os favoritos, além do Redux Toolkit Query para consultar os produtos da API.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+- Listagem de produtos consumidos de uma API;
+- adição de produtos ao carrinho;
+- prevenção de itens duplicados no carrinho;
+- adição e remoção de produtos dos favoritos;
+- exibição da quantidade de favoritos e itens no carrinho;
+- cálculo automático do valor total do carrinho;
+- indicação de carregamento e erro na consulta dos produtos.
 
-### `npm start`
+## Tecnologias utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React;
+- TypeScript;
+- Redux Toolkit;
+- React Redux;
+- Redux Toolkit Query;
+- Styled Components;
+- Create React App.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Pré-requisitos
 
-### `npm test`
+Para executar o projeto, tenha o Node.js e o npm instalados em sua máquina.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instalação
 
-### `npm run build`
+Clone o repositório e acesse a pasta do projeto:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/vbarcellost/redux_react.git
+cd redux_react
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Instale as dependências:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+## Como executar
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Inicie o ambiente de desenvolvimento:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+A aplicação ficará disponível em [http://localhost:3000](http://localhost:3000).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Comandos disponíveis
 
-## Learn More
+- `npm start`: executa o projeto em modo de desenvolvimento;
+- `npm test`: inicia os testes em modo interativo;
+- `npm run build`: gera a versão de produção na pasta `build`;
+- `npm run eject`: expõe as configurações internas do Create React App. Esta operação não pode ser desfeita.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Gerenciamento de estado
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+O estado global está organizado em slices do Redux Toolkit:
+
+- `carrinho`: armazena os produtos adicionados ao carrinho;
+- `favoritos`: armazena os produtos marcados como favoritos;
+- `api`: gerencia a consulta, o cache e os estados de carregamento da API com RTK Query.
+
+Os componentes acessam o estado com `useSelector` e enviam ações com `useDispatch`.
+
+## API
+
+Os produtos são consultados no endpoint:
+
+```text
+https://api-ebac.vercel.app/api/ebac_sports
+```
